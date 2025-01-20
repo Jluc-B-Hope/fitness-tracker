@@ -1,16 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom/client'; 
 import { Provider } from 'react-redux';
-import store from './redux/store';
-import './assets/App.css';
-import App from './pages/App';
+import store from './redux/store'; 
+import App from './App';
+import ErrorBoundary from './ErrorBoundary';
+import './assets/App.css'; 
 
-// Создаём корневой элемент с использованием createRoot
-const root = ReactDOM.createRoot(document.getElementById('root'));
-
-// Рендерим компонент App внутри Provider
+const root = ReactDOM.createRoot(document.getElementById('root')); 
 root.render(
   <Provider store={store}>
-    <App />
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
   </Provider>
 );

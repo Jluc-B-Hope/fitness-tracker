@@ -14,6 +14,8 @@ In the project directory, you can run:
 
 ## `npm install react-router-dom axios redux react-redux`
 
+## `API - https://wger.de/api/v2/exercise/`
+
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 

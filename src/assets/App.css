@@ -1,61 +1,255 @@
-/* Основной стиль страницы */
+/* Общий стиль для всей страницы */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
+/* Контейнер приложения */
 .container {
-  width: 80%;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 800px;
+  margin: 20px auto;
   padding: 20px;
-  background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
 
+/* Заголовок */
 h1 {
   text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+/* Поле поиска */
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+/* Список тренировок */
+.workout-list {
+  list-style: none;
+  padding: 0;
+}
+
+.workout-list li {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.workout-list li a {
+  text-decoration: none;
   color: #333;
+  font-weight: bold;
+}
+
+.workout-list li:hover {
+  background-color: #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ошибка */
+.error-message {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Детали тренировки */
+.workout-detail {
+  text-align: left;
+}
+
+.workout-detail h2 {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.workout-detail p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.workout-detail ol {
+  padding-left: 20px;
+}
+
+.workout-detail ol li {
+  margin-bottom: 10px;
+}
+
+.workout-detail {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #f9f9f9, #e9ecef);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+.workout-title {
+  font-size: 2.5em;
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.category {
+  font-size: 1.2em;
+  margin: 10px 0;
+  color: #555;
+  text-align: center;
+}
+
+.description,
+.steps {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.description h2,
+.steps h2 {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  color: #343a40;
+}
+
+.steps ol {
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.step-item {
+  font-size: 1.1em;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.error-message {
+  color: #dc3545;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+  .workout-detail {
+    padding: 15px;
+  }
+
+  .workout-title {
+    font-size: 2em;
+  }
+
+  .description h2,
+  .steps h2 {
+    font-size: 1.5em;
+  }
+}
+
+/* Общий контейнер */
+.container {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Заголовок */
+.main-title {
+  text-align: center;
+  font-size: 3em;
+  color: #007bff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+/* Оформление поисковой строки */
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.search-input {
+  width: 60%;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  transition: border 0.3s ease-in-out;
+}
+
+.search-input:focus {
+  border-color: #007bff;
+}
+
+/* Стили для списка тренировок */
+.workout-list-container {
+  margin-top: 20px;
+  text-align: center;
 }
 
 .workout-list {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 .workout-item {
-  padding: 10px;
-  margin: 8px 0;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 1.2em;
+  margin: 15px 0;
 }
 
-.workout-item:hover {
-  background-color: #e0e0e0;
+.workout-link {
+  text-decoration: none;
+  color: #007bff;
+  transition: color 0.3s ease-in-out;
 }
 
-.workout-details {
-  margin-top: 20px;
-  padding: 15px;
-  background-color: #f7f7f7;
-  border-radius: 8px;
+.workout-link:hover {
+  color: #0056b3;
 }
 
-.workout-description {
-  margin-top: 15px;
+/* Сообщения об ошибке и загрузке */
+.error-message,
+.loading-message {
+  font-size: 1.2em;
+  color: #dc3545;
+  text-align: center;
 }
 
-.workout-category {
-  font-weight: bold;
-  margin-top: 10px;
-  color: #555;
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .search-input {
+    width: 80%;
+  }
+
+  .main-title {
+    font-size: 2.5em;
+  }
+
+  .workout-item {
+    font-size: 1.1em;
+  }
 }
+
