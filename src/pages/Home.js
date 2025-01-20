@@ -1,27 +1,24 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import ExerciseList from '../components/ExerciseList';
-import AddExercise from '../components/AddExercise';
+import React, { useState, useEffect } from 'react';
 import Filter from '../components/Filter';
-import { fetchExercises } from '../redux/actions/exerciseActions';
-import withAuth from '../HOC/withAuth';
 
-function Home() {
-  const dispatch = useDispatch();
-  const exercises = useSelector(state => state.exercises);
+const Home = () => {
+  const [workouts, setWorkouts] = useState([]);
 
   useEffect(() => {
-    dispatch(fetchExercises());
-  }, [dispatch]);
+    // Имитируем загрузку данных
+    setWorkouts([
+      { id: 1, name: 'Running', type: 'cardio' },
+      { id: 2, name: 'Cycling', type: 'cardio' },
+      { id: 3, name: 'Yoga', type: 'strength' },
+    ]);
+  }, []);
 
   return (
     <div>
-      <h2>Manage Your Exercises</h2>
-      <Filter exercises={exercises} />
-      <AddExercise />
-      <ExerciseList exercises={exercises} />
+      <Filter workouts={workouts} />
     </div>
   );
-}
+};
 
-export default withAuth(Home);
+export default Home;
+

@@ -1,29 +1,27 @@
-import React, { useState, useMemo } from 'react';
+import React, { useMemo } from 'react';
 
-function Filter({ exercises }) {
-  const [search, setSearch] = useState('');
+const Filter = ({ workouts = [] }) => {  
+  // Защищаем от undefined и выполняем фильтрацию только если workouts - это массив
+  const filteredWorkouts = useMemo(() => {
+    if (!Array.isArray(workouts)) {
+      return []; // Если workouts не массив, возвращаем пустой массив
+    }
 
-  const filteredExercises = useMemo(() => {
-    return exercises.filter((exercise) =>
-      exercise.name.toLowerCase().includes(search.toLowerCase())
-    );
-  }, [search, exercises]);
+    return workouts.filter(workout => workout.type === 'cardio');
+  }, [workouts]);
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Filter exercises"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <ul>
-        {filteredExercises.map((exercise) => (
-          <li key={exercise.id}>{exercise.name}</li>
-        ))}
-      </ul>
+      <h3>Filtered Workouts</h3>
+      {filteredWorkouts.length === 0 ? (
+        <p>No workouts found</p>
+      ) : (
+        filteredWorkouts.map(workout => (
+          <div key={workout.id}>{workout.name}</div>
+        ))
+      )}
     </div>
   );
-}
+};
 
 export default Filter;
