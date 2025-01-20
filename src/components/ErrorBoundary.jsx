@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 
 class ErrorBoundary extends Component {
-  state = { hasError: false, errorInfo: null };
+  state = { hasError: false };
 
-  componentDidCatch(error, errorInfo) {
-    this.setState({ hasError: true, errorInfo });
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, info) {
+    console.error('Error caught in ErrorBoundary:', error, info);
   }
 
   render() {
     if (this.state.hasError) {
-      return <div>Что-то пошло не так!</div>;
+      return <h1>Something went wrong!</h1>;
     }
     return this.props.children;
   }

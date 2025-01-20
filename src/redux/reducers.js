@@ -3,21 +3,13 @@ const initialState = {
   error: null,
 };
 
-const workoutReducer = (state = initialState, action) => {
+export const workoutReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'FETCH_WORKOUTS_SUCCESS':
-      return {
-        ...state,
-        workouts: action.payload,
-      };
+      return { ...state, workouts: action.payload };
     case 'FETCH_WORKOUTS_FAILURE':
-      return {
-        ...state,
-        error: action.error,
-      };
+      return { ...state, error: action.error };
     default:
       return state;
   }
 };
-
-export default workoutReducer;

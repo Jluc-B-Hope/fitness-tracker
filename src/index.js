@@ -5,7 +5,10 @@ import store from './redux/store';
 import './assets/App.css';
 import App from './pages/App';
 
-const root = ReactDOM.createRoot(document.getElementById('root')); // создаём корневой элемент
+// Создаём корневой элемент с использованием createRoot
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// Рендерим компонент App внутри Provider
 root.render(
   <Provider store={store}>
     <App />
